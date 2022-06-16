@@ -1,3 +1,14 @@
+.idea
+
+.idea/
+.DS_Store
+
+bin/
+build/
+out/
+
+cmake-build-debug
+
 # Prerequisites
 *.d
 
