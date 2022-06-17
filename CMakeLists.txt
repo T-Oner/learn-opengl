@@ -27,6 +27,10 @@ set(CHAPTERS
 set(1.getting_started
         1.hello_window)
 
+add_library(GLAD "src/glad.c")
+
+set(LIBS ${LIBS} GLAD)
+
 foreach (CHAPTER ${CHAPTERS})
     foreach (DEMO ${${CHAPTER}})
         file(GLOB SOURCE

@@ -1,6 +1,7 @@
 //
 // Created by 冯旭超 on 2022/6/16.
 //
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
 
@@ -26,7 +27,17 @@ int main() {
         return -1;
     }
     glfwMakeContextCurrent(window);
+    if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
+        std::cout << "Failed to initialize GLAD" << std::endl;
+        return -1;
+    }
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+    while (!glfwWindowShouldClose(window)) {
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+    }
+}
 
-    return 0;
+void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
+    glViewport(0, 0, 800, 600);
 }
